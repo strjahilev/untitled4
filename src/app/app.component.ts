@@ -20,8 +20,18 @@ export class AppComponent implements OnInit  {
   ngOnInit() {
     this.getUsersList();
   }
+  resetForm(userform?: NgForm) {
+    if (userform != null)
+      userform.reset();
+    this.user = {
+      key: '',
+      name: ''
+    };
+  }
+
   createuser(formuser: NgForm) {
     this.httpuserservice.createUser(this.user);
+    this.resetForm();
   }
   getUsersList() {
     this.httpuserservice.getUsersList().snapshotChanges().pipe(
