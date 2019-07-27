@@ -21,12 +21,13 @@ export class AppComponent implements OnInit  {
     this.getUsersList();
   }
   resetForm(userform?: NgForm) {
-    if (userform != null)
+    if (userform != null) {
       userform.reset();
-    this.user = {
-      key: '',
-      name: ''
-    };
+      this.user = {
+        key: '',
+        name: ''
+      };
+    }
   }
 
   createuser(formuser: NgForm) {
